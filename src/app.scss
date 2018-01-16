@@ -1,0 +1,394 @@
+// Prefijos 
+
+$prefixes: "webkit", "moz", "ms", "o", "none";
+@mixin prefix($property, $arguments) {
+	@each $prefix in $prefixes {
+		@if $prefix == "none" {
+			#{$property}: $arguments;
+			} @else {
+				-#{$prefix}-#{$property}: $arguments;
+			} 
+		}
+	}
+
+// Media Queries
+
+
+@mixin for-phone-only {
+	@media (max-width: 599px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+	@media (min-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+	@media (min-width: 900px) { @content; }
+}
+@mixin for-desktop-up {
+	@media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+	@media (min-width: 1800px) { @content; }
+}
+
+// Variable
+
+$fuente: 'Open Sans', sans-serif;
+
+$gris: #878787;
+$verde: #B2D234;
+$azul: #3B4550;
+$blanco: #ffffff;
+
+body {
+	font-family: $fuente;
+}
+
+.header {
+	padding: 1em 0;
+	.row {
+		margin-bottom: 0;
+	}
+	&Info {
+		.u-divider {
+			border-right: 2px solid $gris;
+		}
+		.col {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			ul {
+				height: 60px;
+				padding: 0 20px 0 0;
+				margin: 0;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				position: relative;
+				&:after {
+					content: "";
+					display: block;
+					position: absolute;
+					right: 0;
+					width: 0;
+					height: 0;
+					border-left: 8px solid $azul;
+					border-right: 8px solid transparent;
+					border-top: 8px solid transparent;
+					border-bottom: 8px solid transparent;
+				}
+
+				li {
+					font-size: 12px !important;
+					color: $azul;
+					padding: 0 8px 0 0;
+					a {
+						color: $azul;
+					}
+				}
+			}
+		}
+	}
+
+	&Btn {
+		width: 50px;
+		height: 50px;
+		background-color: $verde;
+		border-radius: 50%;
+		display: block;
+		color: $blanco;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		i {
+			font-size: 30px;
+		}
+	}
+}
+
+
+.hero {
+	background-image: url(../img/hero.jpg);
+	background-size: cover;
+	background-position: right;
+	padding: 50px 0;
+	.row {
+		margin-bottom: 0;
+	}	
+}
+.form {
+
+	&Wraper {
+		display: block;
+		position: relative;
+		background-color: rgba($blanco,.50);
+		padding-bottom: 1em;
+	}
+	&Header {
+		background-color: $azul;
+		padding: 1em 0;
+
+		h4 {
+			font-size: 20px;
+			font-weight: 700;
+			color: $blanco;
+			margin: 0 !important;
+		}
+	}
+
+	.btn {
+		background-color: $verde;
+		margin: 1em auto 0;
+		display: block;
+		font-weight: 700;
+		font-size: 1em;
+
+		i {
+			color: $azul;
+			margin-left: .5em;
+			font-size: 15px;
+		}
+	}
+}
+
+
+.btn {
+	background-color: $verde;
+	margin: 1em auto 0;
+	font-weight: 700;
+	font-size: 1em;
+
+	i {
+		color: $azul;
+		margin-left: .5em;
+		font-size: 15px;
+	}
+}
+.error {
+	position: relative !important;
+	color: $azul !important;
+}
+.formWraper {
+	/* label focus color */
+	.input-field {
+		margin-top: .5em;
+	}
+	.col label {
+		color: $blanco;
+		font-weight: 100;
+		font-size: 10px;
+	}
+	[type="checkbox"].filled-in:checked+label:after {
+		top: 0;
+		width: 20px;
+		height: 20px;
+		border: 2px solid $azul;
+		background-color: $azul;
+		z-index: 0;
+	}
+	[type="checkbox"].filled-in:checked+label:before {
+		border-right: 2px solid $verde;
+		border-bottom: 2px solid $verde;
+	}
+	.input-field.col .nesecidad {
+		text-align: center !important;
+		width: 100%;
+		color: $blanco !important;
+		font-size: 1em !important;
+		font-weight: 600 !important;
+	}
+	.input-field input[type=text]:focus + label {
+		color: $azul;
+	}
+	/* label underline focus color */
+	.input-field input[type=text]:focus {
+		color: $azul;
+		font-weight: 600;
+		box-shadow: 0 1px 0 0 $azul;
+	}
+	/* label underline focus color */
+	.input-field input[type=text], .input-field input[type=tel] {
+		background-color: $blanco;
+		font-weight: 700;
+		border-radius: 3px;
+		width: calc(100% - 12px) !important;
+		padding-left: 12px;
+		margin: 0 0 .5em 0;
+	}
+	/* valid color */
+	.input-field input[type=text].valid {
+		box-shadow: 0 1px 0 0 $azul;
+	}
+	/* invalid color */
+	.input-field input[type=text].invalid {
+		box-shadow: 0 1px 0 0 $azul;
+	}
+	/* icon prefix focus color */
+	.input-field .prefix.active {
+		color: #000;
+	}
+
+}
+// Intro
+
+.brain {
+	margin: 0 auto;
+	display: block;
+}
+.intro {
+	padding-top: 1em;
+
+	&Items {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		.col {
+			&:first-child {
+				&:before {
+					display: none;
+				}
+			}
+			position: relative;
+			&:before {
+				font: normal normal normal 15px/1 FontAwesome;
+				content: "\f067";
+				display: block;
+				position: absolute;
+				left: -1em;
+				bottom: 0;
+				color: $verde;
+			}
+			img {
+				max-height: 40px;
+				width: auto;
+				margin: 0 auto;
+				display: block;
+			}
+			h4 {
+				color: $azul;
+				font-size: 14px;
+				text-transform: uppercase;
+				font-weight: 700;
+				text-align: center;
+				margin: 1.14rem 0 0 0;
+				padding: 0 .5em;
+			}
+		}
+	}
+}
+.u-tittle {
+	color: $verde;
+	font-size: 32px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.u-subTittle {
+	color: $verde;
+	font-size: 25px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+.gris {
+	color: $gris;
+	font-weight: 100;
+}
+
+.u-noPad {
+	padding: 0 !important;
+}
+.u-pic {
+	width: auto;
+	max-width: 100%;
+	height: 474px;
+	max-height: 474px;
+	object-fit: cover;
+}
+
+.sec1, .sec2, .sec3 {
+	.row {
+		margin: 0;
+		position: relative;
+	}
+}
+.sec2 {
+	position: relative;
+	top: -6px;
+}
+.sec3 {
+	position: relative;
+	top: -12px;
+}
+.data {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 474px;
+	max-height: 474px;
+
+	div {
+		max-width: 600px;
+	}
+	h2 {
+		color: $verde;
+		font-size: 36px;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+	ul {
+		list-style: circle;
+		li {
+			color: $gris;
+			font-weight: 200;
+			line-height: 2;
+			&:before {
+				content: "•";
+				padding-right: .5em;
+			}
+		}
+	}
+}
+.dark {
+	background-color: $azul;
+	ul {
+		list-style: circle;
+		li {
+			color: $blanco;
+			font-weight: 200;
+			line-height: 2;
+			&:before {
+				content: "•";
+				padding-right: .5em;
+			}
+		}
+	}
+}
+
+.footer {
+	.boxTitle {
+		display: flex;
+
+		i {
+			font-size: 40px;
+			color: $verde;
+			margin-right: .3em;
+		}
+		h4 {
+			color: $azul;
+			font-weight: 800;
+			font-size: 16px;
+			margin: 0px;
+			padding-top: 4px;
+		}
+	}
+
+	.inf {
+		font-weight: 100;
+		font-size: 12px;
+		margin-top: 1em;
+
+		p {
+			margin: .1em 0;
+		}
+	}
+}
