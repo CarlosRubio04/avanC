@@ -1,7 +1,10 @@
 <section class="hero">
 	<div class="container">
 		<div class="row">
-			<div class="col s12 m4 offset-m8">
+			<div class="col s12 m8">
+				<img src="img/texto_banner.png" alt="Texto" class="textBanner">
+			</div>		
+			<div class="col s12 m4">
 				<div class="row formWraper">
 					<div class="formHeader">
 						<h4 class="center-align">
@@ -61,9 +64,12 @@
 		</div>
 		<div class="row">
 			<div class="col s12">
-				<a href="#cta" class="waves-effect waves-light btn modal-trigger">
+				<p class="center-align">
+					<a href="#cta" class="waves-effect waves-light btn modal-trigger">
 					Solicitar Asesoría
 				</a>
+				</p>
+				
 			</div>
 		</div>
 	</div>

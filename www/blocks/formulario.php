@@ -7,10 +7,10 @@
 			<input id="nombre" name="nombre" type="text" class="validate" placeholder="*Nombre" required/>
 		</div>
 		<div class="input-field col s12">
-			<input id="telefono" name="telefono" type="tel" class="validate" placeholder="Telefono">
+			<input id="telefono" name="telefono" type="number" class="validate" placeholder="Telefono" required/>
 		</div>
 		<div class="input-field col s12">
-			<input id="celular" name="celular" type="tel" class="validate" placeholder="*Celular" required/>
+			<input id="celular" name="celular" type="number" class="validate" placeholder="*Celular" required/>
 		</div>
 		<div class="input-field col s12">
 			<select multiple name="objetivo" class="validate" required>

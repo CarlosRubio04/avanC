@@ -43,19 +43,66 @@ body {
 	font-family: $fuente;
 }
 
+#loader {
+	background-color: rgba($azul, .85);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	z-index: 3;
+	p {
+		color: $verde;
+		font-weight: 700;
+	}
+	.progress {
+		.indeterminate {
+			background-color: $verde;
+		}
+		width: 30%;
+		background-color: $azul;
+	}
+}
+
 .header {
 	padding: 1em 0;
+	@include for-phone-only {
+		padding: 1em 0 0 0;
+	}
 	.row {
 		margin-bottom: 0;
 	}
-	&Info {
-		.u-divider {
-			border-right: 2px solid $gris;
+	.container {
+		@include for-phone-only {
+			width: 100%;
 		}
-		.col {
+	}
+	&Logo {
+		@include for-phone-only {
+			width: 200px;
+			margin: 0 auto;
+			display: block;
+		}
+	}
+	&Info {
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: flex-end;
+		.u-divider {
+			border-right: 1px solid $gris;
+			@include for-phone-only {
+				border: none;
+			}
+		}
+		.cols {
 			display: flex;
 			align-items: center;
 			justify-content: flex-end;
+			padding: 0 1em;
 			ul {
 				height: 60px;
 				padding: 0 20px 0 0;
@@ -64,7 +111,13 @@ body {
 				flex-direction: column;
 				justify-content: center;
 				position: relative;
+				@include for-phone-only {
+					padding: 0;
+				}
 				&:after {
+					@include for-phone-only {
+						display: none;
+					}
 					content: "";
 					display: block;
 					position: absolute;
@@ -99,21 +152,39 @@ body {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		@include for-phone-only {
+			width: 20px;
+			height: 20px;
+		}
 		i {
 			font-size: 30px;
+			@include for-phone-only {
+				font-size: 10px;
+			}
 		}
 	}
 }
 
 
 .hero {
-	background-image: url(../img/hero.jpg);
+	background-image: url(../img/banner.jpg);
 	background-size: cover;
 	background-position: right;
 	padding: 50px 0;
+	@include for-phone-only {
+		padding: 1em 0;
+		background-position: right top;
+	}
 	.row {
 		margin-bottom: 0;
 	}	
+}
+.textBanner {
+	@include for-phone-only {
+		width: 50%;
+		margin: 0 auto;
+		display: block;
+	}
 }
 .form {
 
@@ -162,6 +233,12 @@ body {
 		margin-left: .5em;
 		font-size: 15px;
 	}
+	&:hover {
+		background-color: $azul;
+		i {
+			color: $verde;
+		}
+	}
 }
 .error {
 	position: relative !important;
@@ -206,7 +283,7 @@ body {
 		box-shadow: 0 1px 0 0 $azul;
 	}
 	/* label underline focus color */
-	.input-field input[type=text], .input-field input[type=tel] {
+	.input-field input[type=text], .input-field input[type=number] {
 		background-color: $blanco;
 		font-weight: 700;
 		border-radius: 3px;
@@ -243,6 +320,10 @@ body {
 		align-items: center;
 		flex-wrap: wrap;
 		.col {
+			@include for-phone-only {
+				width: 50%;
+				margin-top: 1em;
+			}
 			&:first-child {
 				&:before {
 					display: none;
@@ -257,6 +338,9 @@ body {
 				left: -1em;
 				bottom: 0;
 				color: $verde;
+				@include for-phone-only {
+					display: none;
+				}
 			}
 			img {
 				max-height: 40px;
@@ -298,25 +382,43 @@ body {
 }
 .u-pic {
 	width: auto;
-	max-width: 100%;
+	width: 100%;
 	height: 474px;
 	max-height: 474px;
 	object-fit: cover;
+
+	@include for-phone-only {
+		width: 50%;
+		height: auto;
+		position: absolute;
+		right: .5em;
+		top: -2em;
+		border-radius: 8px;
+	}
 }
 
 .sec1, .sec2, .sec3 {
 	.row {
 		margin: 0;
 		position: relative;
+		@include for-phone-only {
+			margin-top: 4em;
+		}
 	}
 }
 .sec2 {
 	position: relative;
 	top: -6px;
+	@include for-phone-only {
+		top: 0;
+	}
 }
 .sec3 {
 	position: relative;
 	top: -12px;
+	@include for-phone-only {
+		top: 0;
+	}
 }
 .data {
 	display: flex;
@@ -325,7 +427,9 @@ body {
 	align-items: center;
 	height: 474px;
 	max-height: 474px;
-
+	@include for-phone-only {
+		margin-top: 1em;
+	}
 	div {
 		max-width: 600px;
 	}
@@ -365,6 +469,16 @@ body {
 }
 
 .footer {
+	.s12 {
+		@include for-phone-only {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-star;
+			flex-wrap: wrap;
+			padding: 1em 0;
+		}
+	}
 	.boxTitle {
 		display: flex;
 

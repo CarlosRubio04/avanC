@@ -5,23 +5,23 @@
 				<img src="img/logo.png" alt="Avance" class="headerLogo">
 			</div>
 			<div class="col s12 m6">
-				<div class="row headerInfo">
-					<div class="col u-divider">
+				<div class="headerInfo">
+					<div class="cols u-divider">
 						<ul>
 							<li>
 								<b>Teléfono:</b> 
-								<a href="tel:">+ 57 1 492 9696</a>
+								<a href="tel:+5714929696">+ 57 1 492 9696</a>
 							</li>
 							<li>
 								<b>Celular:</b>
-								<a href="tel:">+ 57 301 519 2558</a>
+								<a href="tel:+573015192558">+ 57 301 519 2558</a>
 							</li>
 						</ul>
 						<a href="tel" class="headerBtn">
 							<i class="fa fa-volume-control-phone" aria-hidden="true"></i>
 						</a>
 					</div>
-					<div class="col">
+					<div class="cols">
 						<ul>
 							<li>
 								 Modelia - El Lago
@@ -51,10 +51,10 @@
 					<input id="nombre" name="nombre" type="text" class="validate" placeholder="*Nombre" required/>
 				</div>
 				<div class="input-field col s12">
-					<input id="telefono" name="telefono" type="tel" class="validate" placeholder="Telefono">
+					<input id="telefono" name="telefono" type="number" class="validate" placeholder="Telefono" required/>
 				</div>
 				<div class="input-field col s12">
-					<input id="celular" name="celular" type="tel" class="validate" placeholder="*Celular" required/>
+					<input id="celular" name="celular" type="number" class="validate" placeholder="*Celular" required/>
 				</div>
 				<div class="input-field col s12">
 					<select multiple name="objetivo" class="validate" required>

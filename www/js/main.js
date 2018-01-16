@@ -1,8 +1,15 @@
  $(document).ready(function() {
     $('select').material_select();
     $('.modal').modal();
+    descargar();
   });
  
+ function cargar() {
+    $('#loader').fadeIn();
+ }
+  function descargar() {
+    $('#loader').fadeOut();
+ }
 // Validacion del formulario
 $('#contacto').validate(  {
   rules: {
@@ -12,11 +19,13 @@ $('#contacto').validate(  {
     },
     telefono: {
       required: false,
-      minlength: 7
+      minlength: 7,
+      maxlength: 7
     },
     celular: {
       required: true,
-      minlength: 10
+      minlength: 10,
+      maxlength: 10
     },
     objetivo: {
       required: true
@@ -29,7 +38,13 @@ $('#contacto').validate(  {
     },
     celular: {
       required: "Por favor escribe tu celular",
-      minlength: "Tu celular es demasiado corto"
+      minlength: "Tu celular es demasiado corto",
+      maxlength: "Tu celular es demasiado largo"
+    },
+    telefono: {
+      required: "Por favor escribe tu telefono",
+      minlength: "Tu telefono es demasiado corto",
+      maxlength: "Tu telefono es demasiado largo"
     },
     objetivo: {
       required: "Por favor selecciona uno"
@@ -37,11 +52,11 @@ $('#contacto').validate(  {
 
   },
   submitHandler: function(form){
-    //cargar();
+    cargar();
     $.post('includes/validation.php',$('#contacto').serialize())
     .done(function(data){
       $('.validate').val('');
-      //descargar();
+      descargar();
       console.log(data);
       //window.location.href = "?content=gracias";
     })
@@ -56,11 +71,13 @@ $('#contacto2').validate(  {
     },
     telefono: {
       required: false,
-      minlength: 7
+      minlength: 7,
+      maxlength: 7
     },
     celular: {
       required: true,
-      minlength: 10
+      minlength: 10,
+      maxlength: 10
     },
     objetivo: {
       required: true
@@ -73,7 +90,8 @@ $('#contacto2').validate(  {
     },
     celular: {
       required: "Por favor escribe tu celular",
-      minlength: "Tu celular es demasiado corto"
+      minlength: "Tu celular es demasiado corto",
+      maxlength: "Tu celular es demasiado largo"
     },
     objetivo: {
       required: "Por favor selecciona uno"
