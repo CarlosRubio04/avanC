@@ -57,8 +57,8 @@ $('#contacto').validate(  {
     .done(function(data){
       $('.validate').val('');
       descargar();
-      console.log(data);
-      //window.location.href = "?content=gracias";
+      //console.log(data);
+      window.location.href = "?content=gracias";
     })
   }
 });

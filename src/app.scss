@@ -469,6 +469,7 @@ body {
 }
 
 .footer {
+	margin-top: 1em;
 	.s12 {
 		@include for-phone-only {
 			display: flex;
